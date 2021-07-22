@@ -7,6 +7,28 @@
     <title>Update Event</title>
 </head>
 <body>
-    <form action="" method="post"></form>
+    <div>
+        <h1>Update {{this_event.name}} Event!</h1>
+    </div>
+    <form action="/conserve/update_done" method="post">
+        {% csrf_token %}
+            <div>
+                <label for="name">Event Name:</label>
+                <input type="text" name="name" id="name" value="{{this_event.name}}">
+            </div>
+            <div>
+                <label for="location">Location:</label>
+                <input type="text" name="location" id="location" value="{{this_event.location}}">
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" value="{{this_event.description}}" cols="30" rows="10" ></textarea>
+            </div>
+            <div>
+                <label for="date">Date:</label>
+                <input type="date" name="date" id="date" value="{{this_event.date}}">
+            </div>
+            <button>Update this Event!</button> 
+    </form>
 </body>
 </html>

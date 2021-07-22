@@ -35,3 +35,7 @@ def new_event(request):
     return redirect('/conserve/events')
 
 def update_event(request, event_id):
+    context = {
+        'this_event': Event.objects.get(id=event_id)
+    }
+    return render(request, 'update_event.html', context)
