@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dash</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login_app/style.css' %}">
+</head>
+<body>
+    <h1>Welcome {{user.first_name}}</h1>
+    
+    <ul>
+        <li><a href="/logout"> Log Out </a></li>
+        <li><a href="/conserve/events"> Events </a></li>
+        <li><a href="/conserve/edit/{{user.id}}">Edit your Events</a></li>
+        <li><a href="/profile/{{user.id}}">Profile Settings</a></li>
+    </ul>
+    <div>
+        <h3>Conservation Connectors</h3>
+        <p>
+            Here at Conservation Connectors, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, voluptatum! Autem, nihil? Iusto assumenda 
+            doloribus ipsum quidem id dolorum, obcaecati cupiditate, pariatur praesentium quos debitis accusantium esse. 
+            Fugiat, provident ab.
+        </p>
+        <img src="static/images/pine_creek_gorge.jpeg" alt="">
+    </div>
+    <div>
+        <p>
+            By taking care of the our natural resources, Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa sit est sed eaque modi hic atque officiis 
+            quidem fugiat, soluta veritatis placeat dolores repudiandae dignissimos quis facere adipisci alias vitae!
+        </p>
+        <img src="static/images/park_clean_ani.png" alt="">
+    </div>
+</body>
+</html>

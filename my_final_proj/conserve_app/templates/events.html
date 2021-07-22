@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <div>
+        <h1>Conservation Connectors</h1>
+            <ul>
+                <li><a href="/dash">Home</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+    </div>
+    <div>
+        <h2>Upcoming Events Schedule:</h2>
+        {% for event in events %}
+        <p>Event:{{event.name}},  Location:{{event.location}}, Date:{{event.date}}</p>
+        <p>{{event.description}}</p>
+        {% endfor %}
+    </div>
+    <div class="newEvent">
+        <h3>Add a new Event:</h3>
+            {% if messages %}
+                <ul class="messages">    
+                    {% for message in messages %}    
+                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        <form action="/conserve/new_event" method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="name">Event Name:</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div>
+                <label for="location">Location:</label>
+                <input type="text" name="location" id="location">
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <label for="date">Date:</label>
+                <input type="date" name="date" id="date">
+            </div>
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+</html>
