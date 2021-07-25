@@ -39,3 +39,27 @@ def update_event(request, event_id):
         'this_event': Event.objects.get(id=event_id)
     }
     return render(request, 'update_event.html', context)
+
+def my_events(request, user_id):
+    if user_id != request.session['user_id']:
+        return redirect('/')
+    context = {
+        'this_user' : User.objects.get(id=user_id),
+        'events': User.objects.get(id=user_id).events.all()
+    }
+    return render(request, 'my_events.html', context)
+
+def delete(request, user_id, event_id):
+    this_user= User.objects.get(id=user_id)
+    Event.objects.get(id=event_id).delete()
+    return redirect('/conserve/events')
+
+def update_done(request, event_id):
+    this_event = Event.objects.get(id=event_id)
+    this_event.name = request.POST['name']
+    this_event.location = request.POST['location']
+    this_event.description = request.POST['description']
+    this_event.date = request.POST['date']
+    this_event.save()
+    return redirect('/conserve/events')
+

@@ -77,3 +77,9 @@ def view_user(request, user_id):
         'quotes': User.objects.get(id=user_id).quotes.all()
     }
     return render(request, 'user_page.html', context)
+
+def my_events(request, user_id):
+    context = {
+        'this_user' : User.objects.get(id=user_id)
+    }
+    return render(request, 'my_events.html', context)

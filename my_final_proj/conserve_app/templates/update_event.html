@@ -9,8 +9,9 @@
 <body>
     <div>
         <h1>Update {{this_event.name}} Event!</h1>
+        <a href="/dash">Home</a>
     </div>
-    <form action="/conserve/update_done" method="post">
+    <form action="/conserve/update_done/{{this_event.id}}" method="POST">
         {% csrf_token %}
             <div>
                 <label for="name">Event Name:</label>
@@ -22,7 +23,7 @@
             </div>
             <div>
                 <label for="description">Description:</label>
-                <textarea name="description" id="description" value="{{this_event.description}}" cols="30" rows="10" ></textarea>
+                <textarea name="description" id="description" cols="30" rows="10">{{this_event.description}}</textarea>
             </div>
             <div>
                 <label for="date">Date:</label>
@@ -30,5 +31,8 @@
             </div>
             <button>Update this Event!</button> 
     </form>
+    <div>
+        <a href="/conserve/delete/{{this_event.user.id}}/{{this_event.id}}">Delete this Event!</a>
+    </div>
 </body>
 </html>

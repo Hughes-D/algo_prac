@@ -19,6 +19,7 @@
         {% for event in events %}
         <p>Event:{{event.name}},  Location:{{event.location}}, Date:{{event.date}}</p>
         <p>{{event.description}}</p>
+        <p>Created by: {{event.user.first_name}} {{event.user.last_name}}</p>
         <a href="/conserve/update_event/{{event.id}}">Update Event</a>
         {% endfor %}
     </div>
