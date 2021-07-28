@@ -33,7 +33,7 @@
             </div>
             <div>
                 <label for="date">Date:</label>
-                <input type="date" name="date" id="date" value="{{this_event.date}}">
+                <input type="date" name="date" id="date" value="{{this_event.date|date:'Y-m-d'}}">
             </div>
             <button class="btn btn-primary">Update this Event!</button> 
             <a class="btn btn-danger" href="/conserve/delete/{{this_event.user.id}}/{{this_event.id}}">Delete this Event!</a>
