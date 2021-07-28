@@ -4,27 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Events</title>
 </head>
-<body>
-    <div>
-        <h1>Conservation Connectors</h1>
-            <ul>
-                <li><a href="/dash">Home</a></li>
-                <li><a href="/logout">Log Out</a></li>
+<body class="bg-dark">
+    <div class="nav nav-bar">
+        <h1 class="text-success mr-auto">Conservation Connectors</h1>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="/dash">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
             </ul>
     </div>
-    <div>
-        <h2>Upcoming Events Schedule:</h2>
-        {% for event in events %}
-        <p>Event:{{event.name}},  Location:{{event.location}}, Date:{{event.date}}</p>
-        <p>{{event.description}}</p>
-        <p>Created by: {{event.user.first_name}} {{event.user.last_name}}</p>
-        <a href="/conserve/update_event/{{event.id}}">Update Event</a>
-        {% endfor %}
-    </div>
-    <div class="newEvent">
-        <h3>Add a new Event:</h3>
+    <div >
+        <h3 class="d-flex justify-content-center text-success">Add a new Event</h3>
             {% if messages %}
                 <ul class="messages">    
                     {% for message in messages %}    
@@ -32,26 +29,38 @@
                     {% endfor %}
                 </ul>
             {% endif %}
-        <form action="/conserve/new_event" method="POST">
-            {% csrf_token %}
-            <div>
-                <label for="name">Event Name:</label>
-                <input type="text" name="name" id="name">
-            </div>
-            <div>
-                <label for="location">Location:</label>
-                <input type="text" name="location" id="location">
-            </div>
-            <div>
-                <label for="description">Description:</label>
-                <textarea name="description" id="description" cols="30" rows="10"></textarea>
-            </div>
-            <div>
-                <label for="date">Date:</label>
-                <input type="date" name="date" id="date">
-            </div>
-            <button>Submit</button>
-        </form>
+        <div class="d-flex justify-content-center">
+            <form action="/conserve/new_event" class="border p-3 text-white" method="POST">
+                {% csrf_token %}
+                <div>
+                    <label for="name">Event Name:</label>
+                    <input type="text" class="form-group" name="name" id="name">
+                </div>
+                <div>
+                    <label for="location">Location:</label>
+                    <input type="text" class="form-group" name="location" id="location">
+                </div>
+                <div>
+                    <label for="description">Description:</label>
+                    <textarea name="description" class="form-group" id="description" cols="30" rows="5"></textarea>
+                </div>
+                <div>
+                    <label for="date">Date:</label>
+                    <input type="date" class="form-group" name="date" id="date">
+                </div>
+                <button class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
+    <div class="text-white">
+        <h2 class="text-white">Upcoming Events Schedule</h2>
+        {% for event in events %}
+        <p>Event:{{event.name}},  Location:{{event.location}}, Date:{{event.date}}</p>
+        <p>{{event.description}}</p>
+        <p>Created by: {{event.user.first_name}} {{event.user.last_name}}</p>
+        <a href="/conserve/update_event/{{event.id}}">Update Event</a>
+        {% endfor %}
+    </div>
+    
 </body>
 </html>

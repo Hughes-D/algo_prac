@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Update Event</title>
 </head>
-<body>
-    <div>
-        <h1>Update {{this_event.name}} Event!</h1>
-        <a href="/dash">Home</a>
+<body class="bg-dark">
+    <div class="nav align-items-center">
+        <h1 class="text-success mr-auto r">Update <span class="font-weight-bold">{{this_event.name}}</span> Event!</h1>
+        <a class="btn btn-primary" href="/dash">Home</a>
     </div>
-    <form action="/conserve/update_done/{{this_event.id}}" method="POST">
+    <form class="text-white border rounded" action="/conserve/update_done/{{this_event.id}}" method="POST">
         {% csrf_token %}
             <div>
                 <label for="name">Event Name:</label>
@@ -29,10 +35,8 @@
                 <label for="date">Date:</label>
                 <input type="date" name="date" id="date" value="{{this_event.date}}">
             </div>
-            <button>Update this Event!</button> 
+            <button class="btn btn-primary">Update this Event!</button> 
+            <a class="btn btn-danger" href="/conserve/delete/{{this_event.user.id}}/{{this_event.id}}">Delete this Event!</a>
     </form>
-    <div>
-        <a href="/conserve/delete/{{this_event.user.id}}/{{this_event.id}}">Delete this Event!</a>
-    </div>
 </body>
 </html>
