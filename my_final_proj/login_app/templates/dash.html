@@ -12,16 +12,15 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
-
 <body>
     <div class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
         <h2>Conservation Connectors</h2>
         <ul class="navbar-nav">
             <div class="nav">
-                <li class="nav-item active"><a class="nav-link" href="/logout"> Log Out </a></li>
                 <li class="nav-item "><a class="nav-link" href="/conserve/events"> Events </a></li>
                 <li class="nav-item"><a class="nav-link" href="/conserve/my_events/{{user.id}}">Your Events</a></li>
                 <li class="nav-item"><a class="nav-link" href="/profile/{{user.id}}">Profile Settings</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/logout"> Log Out </a></li>
             </div>
         </ul>
     </div>
@@ -32,9 +31,7 @@
                 Here at Conservation Connectors, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, voluptatum! Autem, nihil? Iusto assumenda 
                 doloribus ipsum quidem id dolorum, obcaecati cupiditate, pariatur praesentium quos debitis accusantium esse. 
                 Fugiat, provident ab.
-            </div>
-            <div>
-                <img src="static/images/pine_creek_gorge.jpeg"  class='rounded float-left' alt="Pine Creek Gorge">
+            <img src="static/images/pine_creek_gorge.jpeg"  class='rounded float-left' alt="Pine Creek Gorge">
             </div>
         </div>
         <div class="p-2">
