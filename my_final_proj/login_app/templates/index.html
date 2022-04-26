@@ -20,7 +20,7 @@
 
 <body>
     <div class="d-flex justify-content-center">
-        <h1 class="p-2">Conservation Connectors</h1>
+        <h1 class="main-head p-2">Conservation Connectors</h1>
     </div>
     <div class="wrapper d-flex justify-content-center">
         {% if messages %}
@@ -32,7 +32,7 @@
             {% endfor %}
         </ul>
         {% endif %}
-        <div class="form-container bg-dark d-inline-flex p-3 border text-white">
+        <div class="form-container d-inline-flex p-3 border text-white">
             <div class='form-register'>
                 <form class="container" action="/create" method="post">
                     {% csrf_token %}

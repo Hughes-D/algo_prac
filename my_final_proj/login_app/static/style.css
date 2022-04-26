@@ -1,5 +1,5 @@
 body {
-  background-color: ;
+background: linear-gradient(rgba(0, 0, 0, .5), transparent),url('/static/img/mountains_and_lake.jpg');
 }
 
 h1,
@@ -7,7 +7,11 @@ h1.p-5,
 h2 {
   font-family: 'Amatic SC', cursive;
   font-weight: 700;
-  color: #00ac42;
+  color: rgb(12, 129, 57);
+}
+
+.main-head {
+  font-size: 4rem;
 }
 
 label {
@@ -18,4 +22,5 @@ label {
 
 .form-container {
   border-radius: .5rem;
+  background: rgba(70, 27, 27, 0.8);
 }
