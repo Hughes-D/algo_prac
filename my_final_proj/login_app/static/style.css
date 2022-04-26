@@ -1,9 +1,21 @@
 body {
-  background-color: grey;
+  background-color: ;
 }
 
 h1,
 h1.p-5,
 h2 {
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
   color: #00ac42;
+}
+
+label {
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.form-container {
+  border-radius: .5rem;
 }

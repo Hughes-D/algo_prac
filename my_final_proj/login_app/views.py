@@ -41,7 +41,7 @@ def dash(request):
 def login(request):
     users = User.objects.filter(email = request.POST['email'])
     if len(users) == 0:
-        messages.error(request, "User doesn't exsits")
+        messages.error(request, "User not found")
         return redirect('/')
     user= users[0]
     if bcrypt.checkpw(request.POST['password'].encode(), user.password.encode()):
@@ -49,7 +49,7 @@ def login(request):
         request.session['user_id'] = user.id
         return redirect('/dash')
     else:
-        print("failed password")
+        print("wrong password")
         messages.error(request, "Wrong password")
     return redirect('/')
 

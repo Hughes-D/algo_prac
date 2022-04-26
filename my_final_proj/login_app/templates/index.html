@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -12,22 +17,23 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
-<body class="bg-dark">
+
+<body>
     <div class="d-flex justify-content-center">
-        <h1 class="p-5">Welcome to Conservation Connectors!</h1>
+        <h1 class="p-2">Conservation Connectors</h1>
     </div>
     <div class="wrapper d-flex justify-content-center">
         {% if messages %}
-            <ul class="messages">    
-                {% for message in messages %}    
-                    <li>
-                    {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
-                    </li>    
-                {% endfor %}
-            </ul>
+        <ul class="messages ">
+            {% for message in messages %}
+            <li>
+                {% if message.tags %}{{ message.tags }}{% endif %}{{ message }}
+            </li>
+            {% endfor %}
+        </ul>
         {% endif %}
-        <div class="d-inline-flex p-3 border text-white">
-            <div class=''>
+        <div class="form-container bg-dark d-inline-flex p-3 border text-white">
+            <div class='form-register'>
                 <form class="container" action="/create" method="post">
                     {% csrf_token %}
                     <h2>Register</h2>
@@ -46,7 +52,6 @@
                     <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" class="form-control" name="password" id="password">
-                        
                     </div>
                     <div class="form-group">
                         <label for="confirm">Confirm Password:</label>
@@ -55,8 +60,8 @@
                     <button class="btn btn-primary active">Register!</button>
                 </form>
             </div>
-        
-            <div class="Login">
+
+            <div class="form-login">
                 <form class="container" action="/login" method="post">
                     {% csrf_token %}
                     <h2>Login</h2>
@@ -74,4 +79,5 @@
         </div>
     </div>
 </body>
+
 </html>
